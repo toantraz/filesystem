@@ -18,6 +18,8 @@ A transparent filesystem abstraction library that provides a consistent interfac
 npm install @ignis/filesystem
 ```
 
+> **💡 Recommended:** Start with the [Upload Service Application](examples/upload-service-application/) - a complete, production-ready example demonstrating file uploads, validation, and S3 integration using the Filesystem component.
+
 > **Note:** Want to build your own Ignis components? Check out the [Building Reusable Ignis Components Guide](docs/ignis-component-guide.md) for a comprehensive walkthrough using this filesystem component as a reference.
 
 ## Quick Start
@@ -200,21 +202,60 @@ class MyApp extends BaseApplication {
 
 ## Examples
 
-See the `examples/` directory for complete usage examples:
+### Recommended: Upload Service Application
 
-**Simple Examples:**
-- `examples/filesystem-local-storage-basic.js` - Local filesystem basic operations
-- `examples/filesystem-s3-storage-basic.js` - S3 basic operations
-- `examples/filesystem-local-storage-typescript.ts` - TypeScript basic example
+**[examples/upload-service-application/](examples/upload-service-application/)**
 
-**Comprehensive Examples (All Operations):**
-- `examples/filesystem-local-storage-comprehensive.js` - Complete local filesystem operations
-- `examples/filesystem-local-storage-comprehensive.ts` - Complete TypeScript example
-- `examples/filesystem-s3-storage-comprehensive.js` - Complete S3 operations
+A complete, production-ready HTTP upload service demonstrating practical Filesystem component usage:
 
-**Full Applications:**
-- `examples/s3-minio-application/` - S3 with MinIO (Docker setup)
-- `examples/local-storage-application/` - Local storage (Ignis framework application)
+- **File Upload API**: RESTful endpoints for file uploads with validation
+- **Type-Safe**: Full TypeScript with Zod validation schemas
+- **Session Management**: Multi-part upload support with session tracking
+- **Security**: File type validation, size limits, filename sanitization
+- **Configurable Storage**: Easy switch between local and S3 storage via environment variables
+- **OpenAPI Documentation**: Integrated Swagger/OpenAPI specs
+
+```bash
+cd examples/upload-service-application
+npm install
+npm run build
+npm start
+# Upload API available at http://localhost:3000/api/upload
+```
+
+### Other Examples
+
+**[examples/local-storage-application/](examples/local-storage-application/)**
+
+Local storage example with Ignis framework integration:
+
+- Demonstrates filesystem component registration
+- Comprehensive filesystem operations demo
+- Configuration file support (JSON, YAML)
+
+```bash
+cd examples/local-storage-application
+npm install
+npm run build
+npm start
+```
+
+**[examples/s3-minio-application/](examples/s3-minio-application/)**
+
+S3-compatible storage with MinIO (local S3 development):
+
+- Docker Compose setup for local MinIO
+- S3 adapter configuration
+- Local development for S3 applications
+
+```bash
+cd examples/s3-minio-application/docker
+docker-compose up -d
+cd ..
+npm install
+npm run build
+npm start
+```
 
 ## Error Handling
 

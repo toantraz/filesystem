@@ -105,6 +105,9 @@ temp/
 *.d.ts
 !src/**/*.d.ts
 
+# Sourcemaps
+*.map
+
 # Ignore test output
 test-results/
 
